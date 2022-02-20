@@ -1,0 +1,56 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2022-02-14T13:19:18-03:00\n"
+
+#. Plugin Name of the plugin
+#: private-comment.php:36
+msgid "Private Comment"
+msgstr "Comentário Privado"
+
+#. Description of the plugin
+msgid "Allow commenters to choose restrict their comments exhibition only to site owners"
+msgstr "Permite ao comentador escolher restringir a exibição de seu comentário apenas aos proprietários do site"
+
+#: private-comment.php:42
+msgid "Checked by default"
+msgstr "Marcado por padrão"
+
+#: private-comment.php:44
+msgid "Label text"
+msgstr "Texto do rótulo"
+
+#: private-comment.php:96
+msgid "Show \"private comment\" option checked by default"
+msgstr "Trazer a opção \"comentário privado\" marcada por padrão"
+
+#. translators: %s: default label text
+#: private-comment.php:105
+msgid "Default: <code>%s</code>"
+msgstr "Padrão: <code>%s</code>"
+
+#. translators: %s: default label text
+#: private-comment.php:105
+#: private-comment.php:112
+msgid "Keep this comment private (visible to site owners only)"
+msgstr "Manter este comentário privado (visível apenas aos proprietários do site)"
+
+#: private-comment.php:146
+msgid "Private comment (visible to site owners only)"
+msgstr "Comentário privado (visível apenas aos proprietários do site)"
+
+#. translators: %d: comment ID
+#: private-comment.php:174
+msgid "Comment %d is private"
+msgstr "O comentário %d é privado"
+
+#: private-comment.php:187
+#: private-comment.php:198
+msgid "A private comment cannot be made public"
+msgstr "Um comentário privado não pode ser tornado público"
+
+#: private-comment.php:190
+msgid "A private comment cannot receive replies"
+msgstr "Um comentário privado não pode receber respostas"
