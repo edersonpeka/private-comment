@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Private Comment
-Plugin URI: https://ederson.peka.nom.br
+Plugin URI: https://ederson.ferreira.tec.br
 Description: Allow commenters to choose restrict their comments exhibition only to site owners
 Author: Ederson Peka
 Version: 0.0.2
