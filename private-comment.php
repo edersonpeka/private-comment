@@ -180,19 +180,25 @@ class private_comment {
         if ( 'approve' == $comment_status || '1' == $comment_status ) {
             $private = call_user_func( array( __CLASS__, 'is_private' ), $comment_ID );
             if ( $private ) {
-                wp_set_comment_status( $comment_ID, 0 );
-                $x = new WP_Ajax_Response(
-                    array(
-                        'what' => 'comment',
-                        'id'   => new WP_Error(
-                            'private_comment',
-                            /* translators: %d: comment ID */
-                            sprintf( __( 'Comment %d is private', 'private-comment' ), $comment_ID )
-                        ),
-                    )
+                $err = new WP_Error(
+                    'private_comment',
+                    /* translators: %d: comment ID */
+                    sprintf( __( 'Comment %d is private', 'private-comment' ), $comment_ID )
                 );
-                $x->send();
-                wp_die();
+                wp_set_comment_status( $comment_ID, 0 );
+                if ( wp_doing_ajax() ) {
+                    $x = new WP_Ajax_Response(
+                        array(
+                            'what' => 'comment',
+                            'action' => 'approve',
+                            'id' => $err,
+                        )
+                    );
+                    $x->send();
+                    wp_die();
+                } else {
+                    wp_die($err);
+                }
             }
         }
     }
