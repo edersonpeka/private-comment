@@ -8,7 +8,7 @@ msgstr ""
 #. Plugin Name of the plugin
 #: private-comment.php:36
 msgid "Private Comment"
-msgstr "Comentário Privado"
+msgstr "Comentário privado"
 
 #. Description of the plugin
 msgid "Allow commenters to choose restrict their comments exhibition only to site owners"
