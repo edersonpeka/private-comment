@@ -4,8 +4,10 @@ Plugin Name: Private Comment
 Plugin URI: https://ederson.ferreira.tec.br
 Description: Allow commenters to choose restrict their comments exhibition only to site owners
 Author: Ederson Peka
-Version: 0.0.2
+Version: 0.0.3
 Author URI: https://profiles.wordpress.org/edersonpeka/
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: private-comment
 */
 
@@ -14,9 +16,6 @@ if ( !class_exists( 'private_comment' ) ) :
 class private_comment {
     // Init
     public static function init() {
-        // Internationalization
-        load_plugin_textdomain( 'private-comment', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-
         // TODO: options para o administrador sobrescrever os textos padrão
         add_action( 'admin_init', array( __CLASS__, 'admin_init' ) );
 
