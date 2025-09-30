@@ -4,7 +4,7 @@ Plugin Name: Private Comment
 Plugin URI: https://ederson.ferreira.tec.br
 Description: Allow commenters to choose restrict their comments exhibition only to site owners
 Author: Ederson Peka
-Version: 0.0.3
+Version: 0.0.4
 Author URI: https://profiles.wordpress.org/edersonpeka/
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -44,11 +44,24 @@ class private_comment {
         // Adding text field "Label text"
         $field_label = apply_filters( 'private_comment_label_text_label', __( 'Label text', 'private-comment' ) );
         add_settings_field( 'private_comment_label_text', $field_label, array( __CLASS__, 'label_text_field' ), 'discussion', 'private_comment_settings' );
+        // Create "settings" link for this plugin on plugins list
+        add_filter( 'plugin_action_links', array( __CLASS__, 'settings_link' ), 10, 2 );
     }
     // Description of our "new section"
     public static function text() {
         // void
     }
+    // Add Settings link to plugins - code from GD Star Ratings
+    // (as seen in http://www.whypad.com/posts/wordpress-add-settings-link-to-plugins-page/785/ )
+    public static function settings_link( $links, $file ) {
+        $this_plugin = plugin_basename(__FILE__);
+        if ( $file == $this_plugin ) {
+            $settings_link = '<a href="' . admin_url( 'options-discussion.php#submit' ) . '">' . __( 'Settings', 'private-comment' ) . '</a>';
+            array_unshift( $links, $settings_link );
+        }
+        return $links;
+    }
+
     // Sanitize our options
     public static function options_sanitize( $ops ) {
         // sanitizing options array
