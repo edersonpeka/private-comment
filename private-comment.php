@@ -4,7 +4,7 @@ Plugin Name: Private Comment
 Plugin URI: https://ederson.ferreira.tec.br
 Description: Allow commenters to choose restrict their comments exhibition only to site owners
 Author: Ederson Peka
-Version: 0.0.4
+Version: 0.0.5
 Author URI: https://profiles.wordpress.org/edersonpeka/
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -138,7 +138,7 @@ class private_comment {
         $text = $options[ 'private_comment_label_text' ] ?: __( 'Keep this comment private (visible to site owners only)', 'private-comment' );
         $text = apply_filters( 'private_comment_label_text_value', $text );
 
-        $field .= '<p class="comment-form-cookies-consent comment-form-private"><input id="wp-comment-private" name="wp-comment-private" type="checkbox" value="1" ' . $checked . ' /> <label for="wp-comment-private">' . $text . '</label></p>';
+        $field .= '<p class="comment-form-cookies-consent comment-form-private"><input id="wp-comment-private" name="wp-comment-private" type="checkbox" value="1" ' . $checked . ' /> <label for="wp-comment-private">' . esc_html( $text ) . '</label></p>';
         return apply_filters( 'private_comment_input_field', $field );
     }
     public static function comment_post( $comment_ID ) {
